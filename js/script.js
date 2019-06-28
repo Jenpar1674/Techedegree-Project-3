@@ -52,7 +52,49 @@ else if ($(this).val()==="heart js"){
 ////$pdfs.attr('download',true);
 
 //$odd.css('backgroundColor')
+/*** ***
+ * const odd = $('a:odd');
+const $secureLinks = $('a[href^="https://"]');
+const $pdfs = $('a[href$=".pdf"]');
                 
+$secureLinks.attr('target','blank');
+$pdfs.attr('download',true);
+
+
+
+$pdfs.on('click', function(event){
+  
+  //check if checkbox has been checked
+  //if zero chekboxes are checked
+  if ($(':checked').length===0){
+    event.preventDefault();
+    
+  //prevent download of document
+  //aler the user
+    alert('please check the box to allow PDF downloads.');
+  //else allow the download
+}
+
+
+});
+
+$('#links').append($pdfCheckbox);
+
+$('a').each(function(index, link){
+
+  console.log(index, $(element).attr('href'));
+              
+  
+
+
+  });
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * */              
 
 
  

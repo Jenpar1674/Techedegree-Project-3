@@ -35,16 +35,24 @@ else if ($(this).val()==="heart js"){
    $('#color').val('tomato'); 
 }
  
-
 });
 
+//$("input[type=checkbox]").on('check','uncheck',function(){
+
+   
+//}
 
 
+//const odd = $('a:odd');
+//odd.hide();
+//const $secureLinks = $(a'[href^=https://"]');
+//const $pdfs = $('a[hrefs=".pdf"]');
+                
+//$secureLinks.attr('target','blank');
+////$pdfs.attr('download',true);
 
-
-
-
-
+//$odd.css('backgroundColor')
+                
 
 
  

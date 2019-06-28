@@ -17,49 +17,26 @@ $('#title').click(function(){
 
       $("#color option").hide();  
   
- $('#design').on('change',function(){
-   //if ($(this).val() ==="js puns"){
+$('#design').on('change',function(){
+   if ($(this).val() ==="js puns"){
    
-   //$('#color').show();
-    $('#color option:contains(JS Puns)').show('#color option');
-    
+      $('#color option').show();
+      $('#color option:contains(JS Puns)').show();
+      $('#color option:not(:contains(JS Puns))').hide();
+      $('#color').val ('cornflowerblue');
 
-    $('#color option:not(:contains(JS Puns))').hide();
-
-   }
+  }
      
-    //$('#color option [value = "cornflowerblue" ]').show();
-    //$('#color option [value = "darkslategrey" ]').show();
-   //$('#color option [value = "gold" ]').show();
-    //$('#color option [value="tomato"]').hide();
-    //$('#color option [value="steelblue"]').hide();
-    //$('#color option [value="dimgrey"]').hide();
-    //$('#color').val("cornflowerblue");
-
-  
+else if ($(this).val()==="heart js"){
    
-
-
- //else if ($(this).val()==="heart js"){
- // $("#color").show();
-  $('#color option:not(:contains(JS Puns))').show();
-  $('#color option:contains(JS Puns)').hide();
-  
-  //
-
-      // }
-   //$('#color option[value="tomato"]').show();
-    //$('#color option[value="steelblue"]').show();
-    //$('#color option[value="dimgrey"]').show();
-    //$('#color option[value="cornflowerblue"]').hide();
-    //$('#color option[value="darkslategrey"]').hide();
-    //$('#color option[value="gold"]').hide();
-    //$('#color').val("tomato");
-  
- // }
+   $("#color option").show();
+   $('#color option:not(:contains(I))').hide();
+   $('#color option:contains(I)').show();
+   $('#color').val('tomato'); 
+}
  
 
-//});
+});
 
 
 

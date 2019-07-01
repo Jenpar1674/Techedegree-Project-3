@@ -36,70 +36,60 @@ else if ($(this).val()==="heart js"){
 }
  
 });
+//activies register
 
-//$("input[type=checkbox]").on('check','uncheck',function(){
+('input[type="checkbox"]')
 
-   
-//}
+//payment info
 
+$("#payment").val ('credit card'); // starts out at credit card 
 
-//const odd = $('a:odd');
-//odd.hide();
-//const $secureLinks = $(a'[href^=https://"]');
-//const $pdfs = $('a[hrefs=".pdf"]');
-                
-//$secureLinks.attr('target','blank');
-////$pdfs.attr('download',true);
-
-//$odd.css('backgroundColor')
-/*** ***
- * const odd = $('a:odd');
-const $secureLinks = $('a[href^="https://"]');
-const $pdfs = $('a[href$=".pdf"]');
-                
-$secureLinks.attr('target','blank');
-$pdfs.attr('download',true);
-
-
-
-$pdfs.on('click', function(event){
+$('.credit-card').show();
+$('p:first').hide();
+$('p:last').hide();
+//credit card option first/hide other two
+$("#payment").on('change',function(){
   
-  //check if checkbox has been checked
-  //if zero chekboxes are checked
-  if ($(':checked').length===0){
-    event.preventDefault();
+  if ($(this).val() ==='credit card'){
     
-  //prevent download of document
-  //aler the user
-    alert('please check the box to allow PDF downloads.');
-  //else allow the download
+    $('.credit-card').show();
+    //$('p:first').hide();
+    //$('p:last').hide();
+    } 
+  else { 
+    $('.credit-card').hide();                            
+    //$('p:first').show();
+    //$('p:last').show();
+  }
+  if ($(this).val()==='paypal'){
+  
+ // $('.credit card').hide();
+  //$('.Bitcoin').hide();
+  $('p:first').show();
+  }
+else {
+  $('p:first').hide();
+
+}
+
+if ($(this).val()==='bitcoin')
+{
+  //$('.Bitcoin').show();
+ // $('.PayPal').hide();
+  //$('.credit card').hide();
+  $('p:last').show();
+}
+else {
+
+ $('p:last').hide();  
 }
 
 
-});
+}
 
-$('#links').append($pdfCheckbox);
-
-$('a').each(function(index, link){
-
-  console.log(index, $(element).attr('href'));
-              
-  
-
-
-  });
- * 
- * 
- * 
- * 
- * 
- * 
- * */              
-
-
- 
-
-
+//}
+)
+//payment reflect
 
 
 

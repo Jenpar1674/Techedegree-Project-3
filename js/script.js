@@ -90,64 +90,59 @@ else {
 //}
 )
 //register for activities
+$("input[type='checkbox']").change(function(){
 
 var checkbox1 = $("input[name='all']" ) 
-var checkbox2 = $("input[name='js-frameworks']" )
+var checkbox2 = $("input[name='js-frameworks']")
 var checkbox3 = $("input[name='js-libs']" )
 var checkbox4 = $("input[name='express']") 
 var checkbox5 = $("input[name='node']") 
 var checkbox6 = $("input[name='build-tools']") 
 var checkbox7 = $("input[name='npm']") 
+let $total=0
 
 
-(function checkBoxes() {
 
 //total starts at 0
-   let $total=0
+   
 //items in check box (checked or not)
 if (checkbox1.is(':checked')){
-    $total += 200
+    $total += 200;
 }
 if (checkbox2.is(':checked')){
-    $total += 100
+    $total += 100;
     checkbox4.prop('disabled',true);
 }else {
-   checkbox4.prop('disabled',false);
+    checkbox4.prop('disabled',false);
 }
 
 if (checkbox3.is(':checked')){
-  $total += 100
+  $total += 100;
   checkbox5.prop('disabled',true);
 }else {
  checkbox5.prop('disabled',false);
 }
 if (checkbox4.is(':checked')){
-  $total += 100
+  $total += 100;
   checkbox2.prop('disabled',true);
 }else {
  checkbox2.prop('disabled',false);
 }
 if (checkbox5.is(':checked')){
-  $total += 100
+  $total += 100;
   checkbox3.prop('disabled',true);
 }else {
  checkbox3.prop('disabled',false);
 }
 if (checkbox6.is(':checked')){
-  $total += 100
+  $total += 100;
 }
 if (checkbox7.is(':checked')){
-  $total += 100
+  $total += 100;
 }
-})
+});
 
-checkbox1.addEventListener.on('click', checkBoxes);
-checkbox1.addEventListener.on('click', checkBoxes);
-checkbox1.addEventListener.on('click', checkBoxes);
-checkbox1.addEventListener.on('click', checkBoxes);
-checkbox1.addEventListener.on('click', checkBoxes);
-checkbox1.addEventListener.on('click', checkBoxes);
-checkbox1.addEventListener.on('click', checkBoxes);
+
 
 //competative activities? disable
     //enable when unchecked

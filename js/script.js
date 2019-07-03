@@ -5,14 +5,15 @@ var checkbox4 = $("input[name='express']")
 var checkbox5 = $("input[name='node']") 
 var checkbox6 = $("input[name='build-tools']") 
 var checkbox7 = $("input[name='npm']") 
+const nameInput = document.getElementById("name");
+const zipInput = document.getElementById("zip");
+const cvvInput = document.getElementById("cvv");
+const emailInput = document.getElementById("mail");
+const creditCardInput = document.getElementById("cc-num");
+const expMonth = document.getElementById("exp-month");
+const expYear = document.getElementById("exp-year");
 $('#name').focus();
-//const nameInput = document.getElementById("name");
-// const zipInput = document.getElementById("zip");
-// const cvvInput = document.getElementById("cvv");
-// const emailInput = document.getElementById("mail");
-// const creditCardInput = document.getElementById("cc-num");
-// const expMonth = document.getElementById("exp-month");
-// const expYear = document.getElementById("exp-year");
+
 $(document).ready(function(){
   
   
@@ -105,7 +106,7 @@ else {
 
 }
 
-//}
+
 )
 
 //register for activities
@@ -221,3 +222,72 @@ $('input[name="npm"]').change(function () {
 
 
 })
+/** 
+VALIDATORS
+*  
+*/
+
+//name Cant be blank
+//function isValidName(name) {
+// return/\w+/.test(name)
+ 
+// }
+ 
+ // Must contain a lowercase, uppercase letter and a number
+ //function isValidPassword(password) {
+ 
+   //return/[a-z]/.test(password) && 
+      //   /[A-Z]/.test(password) && 
+       //  /[0-9]/.test(password)
+// }
+ 
+ // The telephone number must be in the format of (555) 555-5555
+ //function isValidTelephone(telephone) {
+   
+  // const regex=  /^\D*(\d{3})\D*(\d{3})\D*(\d{4})\D*$/.test(telephone);
+   //return text.replace(regex, ($1) $2-$3);
+ 
+// }
+ 
+ //Must be a valid email address
+ //function isValidEmail(mail) {
+ 
+ //return /^[^@]+@[^@.]+\.[a-z]+$/i.test(mail);
+ //}
+ 
+ /**
+  * 
+  * FORMATTING FUNCTIONS
+  * 
+  */
+ 
+ 
+ 
+ //function showOrHideTip(show, element) {
+  // show element when show is true, hide when false
+ //if (show) {
+    // element.style.display = "inherit";
+   //} else {
+   // element.style.display = "none";
+   //}
+ //}
+ 
+ //function createListener(validator) {
+ //   return e => {
+ //     const text = e.target.value;
+ //     const valid = validator(text);
+ //     const showTip = text !== "" && !valid;
+ //     const tooltip = e.target.nextElementSibling;
+ //     showOrHideTip(showTip, tooltip);
+ //   };
+ // }
+ 
+ //nameInput.addEventListener("input", createListener(isValidName));
+ 
+ //passwordInput.addEventListener("input", createListener(isValidPassword));
+ 
+ //telephoneInput.addEventListener("input", createListener(isValidTelephone));
+ 
+ //emailInput.addEventListener("input", createListener(isValidEmail));
+ 
+

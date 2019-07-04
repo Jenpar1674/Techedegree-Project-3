@@ -112,52 +112,52 @@ else {
 //register for activities
 
   
-$('.activities').change(function(){
+// //$('.activities').change(function(){
 
-// //let total = 0
-// let totalSum = 0;
-// let activities = $('.activities input[type = checkbox]');
+// // //let total = 0
+// // let totalSum = 0;
+// // let activities = $('.activities input[type = checkbox]');
 
-// //total starts at 0
+// // //total starts at 0
    
-//items in check box (checked or not)
-if (checkbox1.is(':checked')){
+// //items in check box (checked or not)
+// if (checkbox1.is(':checked')){
     
-}
-if (checkbox2.is(':checked')){
+// }
+// if (checkbox2.is(':checked')){
     
-    checkbox4.prop('disabled',true);
-}else {
-    checkbox4.prop('disabled',false);
-}
+//     checkbox4.prop('disabled',true);
+// }else {
+//     checkbox4.prop('disabled',false);
+// }
 
-if (checkbox3.is(':checked')){
+// if (checkbox3.is(':checked')){
   
-  checkbox5.prop('disabled',true);
-}else {
- checkbox5.prop('disabled',false);
-}
-if (checkbox4.is(':checked')){
+//   checkbox5.prop('disabled',true);
+// }else {
+//  checkbox5.prop('disabled',false);
+// }
+// if (checkbox4.is(':checked')){
   
-  checkbox2.prop('disabled',true);
-}else {
- checkbox2.prop('disabled',false);
-}
-if (checkbox5.is(':checked')){
+//   checkbox2.prop('disabled',true);
+// }else {
+//  checkbox2.prop('disabled',false);
+// }
+// if (checkbox5.is(':checked')){
   
-  checkbox3.prop('disabled',true);
-}else {
- checkbox3.prop('disabled',false);
-}
-if (checkbox6.is(':checked')){
+//   checkbox3.prop('disabled',true);
+// }else {
+//  checkbox3.prop('disabled',false);
+// }
+// if (checkbox6.is(':checked')){
   
-}else{}
-if (checkbox7.is(':checked')){
+// }else{}
+// if (checkbox7.is(':checked')){
   
-}else{}
+// }else{}
 
 
-});
+// });
 
 var totalCost = 0;
 
@@ -168,6 +168,7 @@ var updateCost = function (cost) {
 };  
 $('input[name="all"]').change(function () {
     if ($(this).prop("checked")) {
+        
         updateCost(200);
     } else {
         updateCost(-200);
@@ -175,31 +176,75 @@ $('input[name="all"]').change(function () {
 });
 $('input[name="js-frameworks"]').change(function () {
     if ($(this).prop("checked")) {
-        updateCost(100);
-    } else {
-        updateCost(-100);
-    }
+        
+        checkbox4.prop("disabled", true);
+		checkbox4.parent().addClass("disabled");
+		checkbox4.parent().append('<span class="unavailable" >&nbsp; Unavailable  </span>');
+		updateCost(100);
+        } 
+        
+        else {
+        
+        checkbox4.prop("disabled", false);
+		checkbox4.parent().removeClass("disabled");
+		checkbox4.parent().find('.unavailable').remove();
+		updateCost(-100);
+		}
+        
 });
 $('input[name="js-libs"]').change(function () {
     if ($(this).prop("checked")) {
-        updateCost(100);
-    } else {
-        updateCost(-100);
-    }
+        
+        checkbox5.prop("disabled", true);
+		checkbox5.parent().addClass("disabled");
+		checkbox5.parent().append('<span class="unavailable">&nbsp; Unavailable </span>');
+		updateCost(100);
+        } 
+        
+        else {
+        
+        checkbox5.prop("disabled", false);
+		checkbox5.parent().removeClass("disabled");
+		checkbox5.parent().find('.unavailable').remove();
+		updateCost(-100);
+        }
 });
 $('input[name="express"]').change(function () {
     if ($(this).prop("checked")) {
-        updateCost(100);
-    } else {
-        updateCost(-100);
-    }
+        
+        checkbox2.prop("disabled", true);
+		checkbox2.parent().addClass("disabled");
+		checkbox2.parent().append('<span class="unavailable">&nbsp; Unavailable </span>');
+		updateCost(100);
+        
+    } 
+        else {
+            
+        checkbox2.prop("disabled", false);
+		checkbox2.parent().removeClass("disabled");
+		checkbox2.parent().find('.unavailable').remove();
+		updateCost(-100);
+        }
 });
 $('input[name="node"]').change(function () {
-    if ($(this).prop("checked")) {
-        updateCost(100);
-    } else {
-        updateCost(-100);
-    }
+    
+    if ($(this).prop("checked")){
+        checkbox3.prop("disabled", true);
+		checkbox3.parent().addClass("disabled");
+		checkbox3.parent().append('<span class="unavailable">&nbsp; Unavailable </span>');
+		updateCost(100);
+        
+    } 
+        
+        else {
+            
+        checkbox3.prop("disabled", false);
+		checkbox3.parent().removeClass("disabled");
+		checkbox3.parent().find('.unavailable').remove();
+		updateCost(-100);
+        
+        }
+    
 });
 $('input[name="build-tools"]').change(function () {
     if ($(this).prop("checked")) {
@@ -221,7 +266,115 @@ $('input[name="npm"]').change(function () {
 
 
 
-})
+
+
+
+// $(document).ready(function() {
+
+//     $('#first_form').submit(function(e) {
+//       e.preventDefault();
+//       var first_name = $('#name').val();
+//       //var last_name = $('#last_name').val();
+//       var email = $('#mail').val();
+//       //var password = $('#password').val();
+  
+//       $(".error").remove();
+  
+//       if (first_name.length < 1) {
+//         $('#name').after('<span class="error">This field is required</span>');
+//       }
+//       //if (last_name.length < 1) {
+//         //$('#last_name').after('<span class="error">This field is required</span>');
+//       //}
+//       if (email.length < 1) {
+//         $('#mail').after('<span class="error">This field is required</span>');
+//       } else {
+//         var regEx = /^[A-Z0-9][A-Z0-9._%+-]{0,63}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/;
+//         var validEmail = regEx.test(email);
+//         if (!validEmail) {
+//           $('#mail').after('<span class="error">Enter a valid email</span>');
+//         }
+//      // }
+//       //if (password.length < 8) {
+//         //$('#password').after('<span class="error">Password must be at least 8 characters long</span>');
+//       }
+//     });
+  
+//     $('form[id="second_form"]').validate({
+//       rules: {
+//         fname: 'required',
+//         lname: 'required',
+//         user_email: {
+//           required: true,
+//           email: true,
+//         },
+//         psword: {
+//           required: true,
+//           minlength: 8,
+//         }
+//       },
+//       messages: {
+//         fname: 'This field is required',
+//         lname: 'This field is required',
+//         user_email: 'Enter a valid email',
+//         psword: {
+//           minlength: 'Password must be at least 8 characters long'
+//         }
+//       },
+//       submitHandler: function(form) {
+//         form.submit();
+//       }
+//     });
+  
+//   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//$(document).ready(function() {
+
+//     $("body > div > form").submit(function(e) {
+//       e.preventDefault();
+//       var validName = $('#name').val();
+//       var validEmail = $('#mail').val();
+//       var validCCnum = $('#cc-num').val();
+  
+//       $(".error").remove();
+  
+//       if (name.length < 1) {
+//         $('#name').after('<span class="error">This field is required</span>');
+//       }
+     
+//       if (mail.length < 1) {
+//         $('#mail').after('<span class="error">This field is required</span>');
+//       } else {
+//         var regEx = /^[A-Z0-9][A-Z0-9._%+-]{0,63}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/;
+//         var validEmail = regEx.test(mail);
+//         if (!validEmail) {
+//           $('#mail').after('<span class="error">Enter a valid email</span>');
+//         }
+//     //   //}
+//     //   if (password.length < 8) {
+//     //     $('#password').after('<span class="error">Password must be at least 8 characters long</span>');
+//     //   }
+     // };
+  
+  //});
+
+
+
+//)
 /** 
 VALIDATORS
 *  
@@ -251,7 +404,7 @@ VALIDATORS
  
  //Must be a valid email address
  //function isValidEmail(mail) {
- 
+        //if
  //return /^[^@]+@[^@.]+\.[a-z]+$/i.test(mail);
  //}
  
@@ -290,4 +443,4 @@ VALIDATORS
  
  //emailInput.addEventListener("input", createListener(isValidEmail));
  
-
+})

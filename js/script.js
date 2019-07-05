@@ -205,17 +205,16 @@ $(document).ready(function () {
    
     
     
-    var validZip = zipRegex.test($("#zip").val());
+    
     var regexCC = /\b\d{13,16}\b/;
-    var validCC = regexCC.test(($("#cc-num").val()))
+    
     var zipRegex = /^\d{1,5}$/;
     var CVVRegex = /^\d{3}$/;
-    //var invalidEntry= " "
-    var regEx = /^[A-Z0-9][A-Z0-9._%+-]{0,63}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/;
-    var validEmail = regEx.test(email);
+    var regExMail = /^[A-Z0-9][A-Z0-9._%+-]{0,63}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/;
+    //var validEmail = regEx.test(email);
 
     //$('form').append('<p id="invalidEntry"></p>');
-   
+    ('#error-message').hide();
     
     $('form').submit(function (){
     
@@ -223,7 +222,7 @@ $(document).ready(function () {
     
         
         if ($('#name').length < 1) {
-        $('#name').after('<span class="error">This field is required</span>');
+        $('#name').after('<span class="error-message">This field is required</span>');
             //       }
         //if ( $('#name').val() === "" ) {
             //invalidEntry= "SORRY YOU MUST ENTER YOUR NAME";
@@ -232,21 +231,21 @@ $(document).ready(function () {
         
         if (email.length < 1) {
                 
-            $('#mail').after('<span class="error">This field is required</span>');
+            $('#mail').after('<span class="error-message">This field is required</span>');
             $('#mail').focus();
         }
         //($('#mail').val() = emailRegEX) {
         //invalidEntry.text = " THIS IS NOT A VALID EMAIL, PLEASE ENTER AGAIN";
          else 
          
-         if (!validEmail) {
+         if (!regExMail) {
          
-            $('#mail').after('<span class="error">Enter a valid email</span>');
+            $('#mail').after('<span class="error-message">Enter a valid email</span>');
             $('#mail').focus();
         }
         
         if ( $(".activities").checked.length === 0 ) {
-            $(".activities").after('<span class="error">Please check at least one acivity</span>');
+            $(".activities").after('<span class="error-message">Please check at least one acivity</span>');
            
             // invalidEntry = "Please select at least one activitytivity.";
             $('.activities').focus();
@@ -255,13 +254,13 @@ $(document).ready(function () {
             $('form').append("Please select a payment method.");
             $('#payment').focus();
         
-        } else if ( $("#payment").val() === "credit card" && (!validCC) //regexCC.test($("#cc-num").val()) )  
-        )
+        } else if ( $("#payment").val() === "credit card" && (!regexCC).test($("#cc-num").val()) )  
+        
         {
             $('form').append("Please enter a valid credit card number.");         
             $('#cc-num').focus();
         
-        } else if ( $("#payment").val() === "credit card" && (!validZip)//zipCode.test($("#zip").val()) 
+        } else if ( $("#payment").val() === "credit card" && (!zipRegex).test($("#zip").val()) 
         )  
         {
             $('form').append("Please enter a valid zip code."); 
@@ -273,7 +272,8 @@ $(document).ready(function () {
             $('#cvv').focus();
         } 
         
-       
+        document.getElementById('error-message').innerHTML = errorMessage;
+        $('#error-message').show();
         
     });
     

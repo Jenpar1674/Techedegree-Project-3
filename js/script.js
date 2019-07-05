@@ -213,7 +213,7 @@ $(document).ready(function () {
     var regExMail = /^[A-Z0-9][A-Z0-9._%+-]{0,63}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/;
     //var validEmail = regEx.test(email);
 
-    //$('form').append('<p id="invalidEntry"></p>');
+    $('form').append('<p id="error-message"></p>');
     ('#error-message').hide();
     
     $('form').submit(function (){
@@ -272,7 +272,7 @@ $(document).ready(function () {
             $('#cvv').focus();
         } 
         
-        document.getElementById('error-message').innerHTML = errorMessage;
+        document.getElementById('#error-message').innerHTML = errorMessage;
         $('#error-message').show();
         
     });

@@ -226,34 +226,37 @@ $('input[name="npm"]').change(function () {
 VALIDATORS
 *  
 */
+function isValidUserName (name){
+  let valid = /^\S/.test(name);
+  if (valid) {
+      $('#name-error').hide();
+      return true;
+  } else {
+      $('#name-error').show();
+      return false;
+  }
 
-//name Cant be blank
-//function isValidName(name) {
-// return/\w+/.test(name)
- 
-// }
- 
- // Must contain a lowercase, uppercase letter and a number
- //function isValidPassword(password) {
- 
-   //return/[a-z]/.test(password) && 
-      //   /[A-Z]/.test(password) && 
-       //  /[0-9]/.test(password)
-// }
- 
- // The telephone number must be in the format of (555) 555-5555
- //function isValidTelephone(telephone) {
-   
-  // const regex=  /^\D*(\d{3})\D*(\d{3})\D*(\d{4})\D*$/.test(telephone);
-   //return text.replace(regex, ($1) $2-$3);
- 
-// }
- 
- //Must be a valid email address
- //function isValidEmail(mail) {
- 
- //return /^[^@]+@[^@.]+\.[a-z]+$/i.test(mail);
- //}
+//Must be a valid email address
+//  //function isValidEmail(mail) {
+//   let valid = /^[^@]+@[^@.]+\.[a-z]+$/i.test(email);
+//   if (valid) {
+//       $('#email-error').hide();
+//       return true;
+//   } else {
+//       $('#email-error').show();
+//       return false;
+//   }
+//}
+function isValidEmail(emailInput, alertMsg) {
+  var emailExp = /^[w-.+]+@[a-zA-Z0-9.-]+.[a-zA-z0-9]{2,4}$/;
+  if (emailInput.value.match(emailExp)) {
+  return true;
+  } else {
+  document.getElementById('p3').innerText = alertMsg; // This segment displays the validation rule for email.
+  emailInput.focus();
+  return false;
+  }
+  }
  
  /**
   * 
@@ -263,31 +266,31 @@ VALIDATORS
  
  
  
- //function showOrHideTip(show, element) {
-  // show element when show is true, hide when false
- //if (show) {
-    // element.style.display = "inherit";
-   //} else {
-   // element.style.display = "none";
-   //}
- //}
+//  //function showOrHideTip(show, element) {
+//   // show element when show is true, hide when false
+//  if (show) {
+//      element.style.display = "inherit";
+//    } else {
+//     element.style.display = "none";
+//    }
+//  }
  
- //function createListener(validator) {
- //   return e => {
- //     const text = e.target.value;
- //     const valid = validator(text);
- //     const showTip = text !== "" && !valid;
- //     const tooltip = e.target.nextElementSibling;
- //     showOrHideTip(showTip, tooltip);
- //   };
- // }
+//  function createListener(validator) {
+//     return e => {
+//      const text = e.target.value;
+//    const valid = validator(text);
+//      const showTip = text !== "" && !valid;
+//       const tooltip = e.target.nextElementSibling;
+//     showOrHideTip(showTip, tooltip);
+//     };
+  //}
  
- //nameInput.addEventListener("input", createListener(isValidName));
+ nameInput.addEventListener("input", createListener(isValidName));
  
  //passwordInput.addEventListener("input", createListener(isValidPassword));
  
  //telephoneInput.addEventListener("input", createListener(isValidTelephone));
  
- //emailInput.addEventListener("input", createListener(isValidEmail));
+ emailInput.addEventListener("input", createListener(isValidEmail));
  
-
+}
